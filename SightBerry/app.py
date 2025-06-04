@@ -12,8 +12,8 @@ class CombinedApp(CombinedUI):
         super().__init__()
         # Instanciar IA
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        cls_path = r"models/resnet50.pth"
-        det_path = r"models/yolov8.pt"
+        cls_path = r"SightBerry/models/resnet50.pth"
+        det_path = r"SightBerry/models/yolov8.pt"
         clf, idx_to_class = cargar_modelo_clasificacion(cls_path, device)
         det = cargar_detector(det_path)
         self.processor = ModelProcessor(clf, det, device, idx_to_class)
